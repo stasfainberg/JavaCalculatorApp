@@ -22,7 +22,7 @@ public class Calculator {
 	double secondNum;
 	double result;
 	String operations;
-	String answer;
+	String answer = new String();
 	String tempText;
 	
 	boolean plus = false;
@@ -108,11 +108,21 @@ public class Calculator {
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(null);
+				status.setText(null);
 				firstNum = 0;
 				secondNum = 0;
 				result = 0;
 				operations = null;
 				answer = null;
+				
+				plus = false;
+				minus = false;
+				mul = false;
+				div = false;
+				equal = false;
+				resultDispalied = false;
+				firstNumStatus = false;
+				secondNumStatus = false;
 						
 			}
 		});
@@ -142,21 +152,23 @@ public class Calculator {
 		JButton btnPlus = new JButton("+");
 		btnPlus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(resultDispalied)
+				{
+					firstNum = Double.parseDouble(textField.getText());
+				}
 				
 				if(!plus && !textField.getText().equals(""))
 				{
-					firstNum = Double.parseDouble(textField.getText());
 					operations = "+";
 					tempText = textField.getText() + " " + operations + " ";
 					textField.setText(tempText);
+					tempText = "";
 					plus = true;
 					equal = true;
-					
+					firstNumStatus = true;
 				}else {
 					
 				}
-				
-
 			}
 		});
 		btnPlus.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -173,21 +185,19 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn7.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn7.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn7.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn7.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn7.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn7.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 		});
@@ -206,21 +216,19 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn8.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn8.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn8.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn8.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn8.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn8.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
@@ -239,21 +247,19 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn9.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn9.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn9.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn9.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn9.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn9.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
@@ -267,19 +273,23 @@ public class Calculator {
 		JButton btnMinus = new JButton("-");
 		btnMinus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				if(!minus && !textField.getText().equals(""))
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
-					textField.setText("");
+				}
+				
+				if(!plus && !textField.getText().equals(""))
+				{
 					operations = "-";
+					tempText = textField.getText() + " " + operations + " ";
+					textField.setText(tempText);
+					tempText = "";
 					minus = true;
 					equal = true;
-					
+					firstNumStatus = true;
 				}else {
 					
 				}
-				
 			}
 		});
 		btnMinus.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -296,27 +306,25 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn4.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn4.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn4.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn4.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn4.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn4.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
 		});
 		btn4.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn4.setBounds(10, 203, 58, 50);
+		btn4.setBounds(10, 206, 58, 50);
 		frame.getContentPane().add(btn4);
 		
 		
@@ -330,27 +338,25 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn5.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn5.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn5.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn5.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn5.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn5.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
 		});
 		btn5.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn5.setBounds(76, 203, 58, 50);
+		btn5.setBounds(76, 206, 58, 50);
 		frame.getContentPane().add(btn5);
 		
 		
@@ -364,27 +370,25 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn6.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn6.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn6.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn6.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn6.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn6.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
 		});
 		btn6.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn6.setBounds(144, 203, 58, 50);
+		btn6.setBounds(144, 206, 58, 50);
 		frame.getContentPane().add(btn6);
 		
 		
@@ -394,25 +398,27 @@ public class Calculator {
 		JButton btnMul = new JButton("*");
 		btnMul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				if(!mul && !textField.getText().equals(""))
+				if(resultDispalied)
 				{
-					operations = "*";
+					firstNum = Double.parseDouble(textField.getText());
+				}
+				
+				if(!plus && !textField.getText().equals(""))
+				{
+					operations = "+";
 					tempText = textField.getText() + " " + operations + " ";
 					textField.setText(tempText);
 					tempText = "";
-					plus = true;
+					mul = true;
 					equal = true;
 					firstNumStatus = true;
-
 				}else {
 					
 				}
-				
 			}
 		});
 		btnMul.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnMul.setBounds(212, 203, 58, 50);
+		btnMul.setBounds(212, 206, 58, 50);
 		frame.getContentPane().add(btnMul);
 		
 		
@@ -427,27 +433,25 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn1.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn1.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn1.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn1.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn1.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn1.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 			
 		});
 		btn1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn1.setBounds(10, 266, 58, 50);
+		btn1.setBounds(10, 263, 58, 50);
 		frame.getContentPane().add(btn1);
 		
 		
@@ -461,26 +465,24 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn2.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn2.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn2.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn2.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn2.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn2.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 		});
 		btn2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn2.setBounds(76, 266, 58, 50);
+		btn2.setBounds(76, 263, 58, 50);
 		frame.getContentPane().add(btn2);
 		
 		
@@ -495,26 +497,24 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+				
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn3.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn3.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn3.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn3.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-					}
+					String enteredNumber = textField.getText() + btn3.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn3.getText();
+					secondNum = Double.parseDouble(tempText.toString());
 				}
 			}
 		});
 		btn3.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn3.setBounds(144, 266, 58, 50);
+		btn3.setBounds(144, 263, 58, 50);
 		frame.getContentPane().add(btn3);
 		
 		
@@ -524,23 +524,27 @@ public class Calculator {
 		JButton btnDiv = new JButton("/");
 		btnDiv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				if(!div && !textField.getText().equals(""))
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
-					textField.setText("");
-					operations = "/";
+				}
+				
+				if(!plus && !textField.getText().equals(""))
+				{
+					operations = "+";
+					tempText = textField.getText() + " " + operations + " ";
+					textField.setText(tempText);
+					tempText = "";
 					div = true;
 					equal = true;
-					
+					firstNumStatus = true;
 				}else {
 					
 				}
-				
 			}
 		});
 		btnDiv.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnDiv.setBounds(212, 266, 58, 50);
+		btnDiv.setBounds(212, 263, 58, 50);
 		frame.getContentPane().add(btnDiv);
 		
 		
@@ -620,6 +624,7 @@ public class Calculator {
 						status.setText(answer);
 						textField.setText(answer);
 						resultDispalied = true;
+						firstNumStatus = false;
 						equal = false;
 						plus = false;
 					}
@@ -630,8 +635,9 @@ public class Calculator {
 						status.setText(answer);
 						textField.setText(answer);
 						resultDispalied = true;
+						firstNumStatus = false;
 						equal = false;
-						plus = false;
+						minus = false;
 					}
 					else if(operations == "*")
 					{
@@ -640,8 +646,9 @@ public class Calculator {
 						status.setText(answer);
 						textField.setText(answer);
 						resultDispalied = true;
+						firstNumStatus = false;
 						equal = false;
-						plus = false;
+						mul = false;
 					}
 					else if(operations == "/")
 					{
@@ -650,8 +657,9 @@ public class Calculator {
 						status.setText(answer);
 						textField.setText(answer);
 						resultDispalied = true;
+						firstNumStatus = false;
 						equal = false;
-						plus = false;
+						div = false;
 					}
 					else if(operations == "%")
 					{
