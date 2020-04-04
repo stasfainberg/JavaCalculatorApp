@@ -162,22 +162,19 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}
-				if(operationStatus)
+				}else if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}
-				if(resultDispalied)
+				}else if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}
-				if(!textField.getText().equals(""))
+				}else if(!textField.getText().equals(""))
 				{
 					operations = "+";
 					tempText = textField.getText() + " " + operations + " ";
@@ -207,9 +204,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn7.getText();
 					textField.setText(enteredNumber);
@@ -239,9 +234,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn8.getText();
 					textField.setText(enteredNumber);
@@ -271,9 +264,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn9.getText();
 					textField.setText(enteredNumber);
@@ -301,23 +292,19 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}
-				if(operationStatus)
+				}else if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}
-				if(resultDispalied)
+				}else if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}
-				
-				if(!textField.getText().equals(""))
+				}else if(!textField.getText().equals(""))
 				{
 					operations = "-";
 					tempText = textField.getText() + " " + operations + " ";
@@ -347,9 +334,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn4.getText();
 					textField.setText(enteredNumber);
@@ -380,9 +365,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn5.getText();
 					textField.setText(enteredNumber);
@@ -413,9 +396,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn6.getText();
 					textField.setText(enteredNumber);
@@ -445,23 +426,19 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}
-				if(operationStatus)
+				}else if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}
-				if(resultDispalied)
+				}else if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}
-				
-				if(!textField.getText().equals(""))
+				}else if(!textField.getText().equals(""))
 				{
 					operations = "*";
 					tempText = textField.getText() + " " + operations + " ";
@@ -493,9 +470,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn1.getText();
 					textField.setText(enteredNumber);
@@ -526,9 +501,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn2.getText();
 					textField.setText(enteredNumber);
@@ -559,9 +532,7 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}
-				
-				if(!firstNumStatus)
+				}else if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn3.getText();
 					textField.setText(enteredNumber);
@@ -590,23 +561,19 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}
-				if(operationStatus)
+				}else if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}
-				if(resultDispalied)
+				}else if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}
-				
-				if(!textField.getText().equals(""))
+				}else if(!textField.getText().equals(""))
 				{
 					operations = "/";
 					tempText = textField.getText() + " " + operations + " ";
@@ -674,7 +641,16 @@ public class Calculator {
 		JButton btnPM = new JButton("+-");
 		btnPM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!negativeNumStatus)
+				
+				//if the second numbers is typed 
+				
+				//if the operation key entered 
+				
+				//if only the first number entered
+				
+				
+				
+				if(firstNumStatus)
 				{
 					double tmpNumber = Double.parseDouble(String.valueOf(textField.getText()));
 					if(tmpNumber > 0)
@@ -687,6 +663,8 @@ public class Calculator {
 						textField.setText(String.valueOf(firstNum));
 						negativeNumStatus = true;	
 					}
+				}else if(operationStatus){
+					
 				}else {
 					
 				}
