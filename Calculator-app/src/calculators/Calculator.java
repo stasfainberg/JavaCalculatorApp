@@ -35,7 +35,7 @@ public class Calculator {
 	boolean resultDispalied = false;
 	boolean firstNumStatus = false;
 	boolean secondNumStatus = false;
-	boolean negativeNumStatus = false;
+	boolean PMStatus = false;
 	boolean operationStatus = false;
 	
 	final static Color  RESULT_COLOR = Color.RED;
@@ -128,7 +128,7 @@ public class Calculator {
 				resultDispalied = false;
 				firstNumStatus = false;
 				secondNumStatus = false;
-				negativeNumStatus = false;
+				PMStatus = false;
 						
 			}
 		});
@@ -162,19 +162,22 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}else if(operationStatus)
+				}
+				if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}else if(resultDispalied)
+				}
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}else if(!textField.getText().equals(""))
+				}
+				if(!textField.getText().equals(""))
 				{
 					operations = "+";
 					tempText = textField.getText() + " " + operations + " ";
@@ -204,7 +207,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn7.getText();
 					textField.setText(enteredNumber);
@@ -234,7 +239,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn8.getText();
 					textField.setText(enteredNumber);
@@ -264,7 +271,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn9.getText();
 					textField.setText(enteredNumber);
@@ -292,19 +301,23 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}else if(operationStatus)
+				}
+				if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}else if(resultDispalied)
+				}
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}else if(!textField.getText().equals(""))
+				}
+				
+				if(!textField.getText().equals(""))
 				{
 					operations = "-";
 					tempText = textField.getText() + " " + operations + " ";
@@ -334,7 +347,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn4.getText();
 					textField.setText(enteredNumber);
@@ -365,7 +380,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn5.getText();
 					textField.setText(enteredNumber);
@@ -396,7 +413,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn6.getText();
 					textField.setText(enteredNumber);
@@ -426,19 +445,23 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}else if(operationStatus)
+				}
+				if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}else if(resultDispalied)
+				}
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}else if(!textField.getText().equals(""))
+				}
+				
+				if(!textField.getText().equals(""))
 				{
 					operations = "*";
 					tempText = textField.getText() + " " + operations + " ";
@@ -470,7 +493,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn1.getText();
 					textField.setText(enteredNumber);
@@ -501,7 +526,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn2.getText();
 					textField.setText(enteredNumber);
@@ -532,7 +559,9 @@ public class Calculator {
 				{
 					textField.setText("");
 					resultDispalied = false;
-				}else if(!firstNumStatus)
+				}
+				
+				if(!firstNumStatus)
 				{
 					String enteredNumber = textField.getText() + btn3.getText();
 					textField.setText(enteredNumber);
@@ -561,19 +590,23 @@ public class Calculator {
 				{
 					status.setText("One operation at a time");
 					return;
-				}else if(operationStatus)
+				}
+				if(operationStatus)
 				{
 					tempText = textField.getText();
 					String tempText01 = tempText.substring(0, tempText.length()-1);
 					String tempText02 = tempText01.substring(0, tempText01.length()-1);
 					textField.setText(tempText02.substring(0, tempText02.length()-1));
 					tempText = "";
-				}else if(resultDispalied)
+				}
+				if(resultDispalied)
 				{
 					firstNum = Double.parseDouble(textField.getText());
 					resultDispalied = false;
 					operationStatus = true;
-				}else if(!textField.getText().equals(""))
+				}
+				
+				if(!textField.getText().equals(""))
 				{
 					operations = "/";
 					tempText = textField.getText() + " " + operations + " ";
@@ -642,33 +675,39 @@ public class Calculator {
 		btnPM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//if the second numbers is typed 
-				
-				//if the operation key entered 
-				
-				//if only the first number entered
-				
-				
-				
-				if(firstNumStatus)
-				{
-					double tmpNumber = Double.parseDouble(String.valueOf(textField.getText()));
-					if(tmpNumber > 0)
-					{
-						firstNum = tmpNumber * (-1);
-						textField.setText(String.valueOf(firstNum));
-						negativeNumStatus = true;						
-					}else {
-						firstNum = tmpNumber * (-1);
-						textField.setText(String.valueOf(firstNum));
-						negativeNumStatus = true;	
-					}
-				}else if(operationStatus){
+				if(resultDispalied) {
+					firstNum = Double.parseDouble(textField.getText());
+					resultDispalied = false;
 					
+					firstNum = firstNum * (-1);
+					textField.setText("");
+					textField.setText(String.valueOf(firstNum));
 				}else {
-					
+					if(secondNumStatus) {
+						String enteredNumber = textField.getText();
+						secondNum = secondNum * (-1);
+						int indexOfOperator = enteredNumber.indexOf(operations);
+						tempText = enteredNumber.substring(0, indexOfOperator+2);
+						tempText = tempText.concat("(" + String.valueOf(secondNum) + ")");
+						textField.setText(tempText);
+					}else if(operationStatus) {
+						return;
+					}else
+					//if first number entered switch sign
+					{
+						
+						firstNum = firstNum * (-1);
+						textField.setText("");
+						textField.setText(String.valueOf(firstNum));
+						
+					}
 				}
+				
+				
+				
 
+				
+				
 			}
 		});
 		btnPM.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -696,7 +735,7 @@ public class Calculator {
 						resultDispalied = true;
 						firstNumStatus = false;
 						secondNumStatus = false;
-						negativeNumStatus = false;
+						PMStatus = false;
 						equal = false;
 						plus = false;
 						operationStatus = false;
@@ -710,7 +749,7 @@ public class Calculator {
 						resultDispalied = true;
 						firstNumStatus = false;
 						secondNumStatus = false;
-						negativeNumStatus = false;
+						PMStatus = false;
 						equal = false;
 						minus = false;
 						operationStatus = false;
@@ -724,7 +763,7 @@ public class Calculator {
 						resultDispalied = true;
 						firstNumStatus = false;
 						secondNumStatus = false;
-						negativeNumStatus = false;
+						PMStatus = false;
 						equal = false;
 						mul = false;
 						operationStatus = false;
@@ -738,7 +777,7 @@ public class Calculator {
 						resultDispalied = true;
 						firstNumStatus = false;
 						secondNumStatus = false;
-						negativeNumStatus = false;
+						PMStatus = false;
 						equal = false;
 						div = false;
 						operationStatus = false;
