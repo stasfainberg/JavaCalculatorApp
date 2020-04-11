@@ -695,19 +695,11 @@ public class Calculator {
 					}else
 					//if first number entered switch sign
 					{
-						
 						firstNum = firstNum * (-1);
 						textField.setText("");
 						textField.setText(String.valueOf(firstNum));
-						
 					}
 				}
-				
-				
-				
-
-				
-				
 			}
 		});
 		btnPM.setFont(new Font("Tahoma", Font.BOLD, 18));
