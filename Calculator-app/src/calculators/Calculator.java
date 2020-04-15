@@ -37,6 +37,7 @@ public class Calculator {
 	boolean secondNumStatus = false;
 	boolean PMStatus = false;
 	boolean operationStatus = false;
+	boolean dot = false;
 	
 	final static Color  RESULT_COLOR = Color.RED;
 
@@ -187,6 +188,7 @@ public class Calculator {
 					equal = true;
 					firstNumStatus = true;
 					operationStatus = true;
+					dot = false;
 				}else {
 					
 				}
@@ -327,6 +329,7 @@ public class Calculator {
 					equal = true;
 					firstNumStatus = true;
 					operationStatus = true;
+					dot = false;
 				}else {
 					
 				}
@@ -471,6 +474,7 @@ public class Calculator {
 					equal = true;
 					firstNumStatus = true;
 					operationStatus = true;
+					dot = false;
 				}else {
 					
 				}
@@ -616,6 +620,7 @@ public class Calculator {
 					equal = true;
 					firstNumStatus = true;
 					operationStatus = true;
+					dot = false;
 				}else {
 					
 				}
@@ -663,6 +668,41 @@ public class Calculator {
 		
 		/***************/
 		JButton btnDot = new JButton(".");
+		btnDot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if(resultDispalied)
+				{
+					return;
+				}else {
+					if(!firstNumStatus)
+					{
+						if(!dot) {
+							dot = true;
+							String enteredNumber = textField.getText() + btnDot.getText();
+							textField.setText(enteredNumber);
+							
+						}else {
+							
+						}
+					}else if(secondNumStatus && operationStatus){
+						if(!dot) {
+							dot = true;
+							String enteredNumber = textField.getText() + btnDot.getText();
+							textField.setText(enteredNumber);
+						}else {
+							
+						}
+					}else {
+						
+					}
+				}
+				
+				
+				
+				
+			}
+		});
 		btnDot.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnDot.setBounds(76, 320, 58, 50);
 		frame.getContentPane().add(btnDot);
