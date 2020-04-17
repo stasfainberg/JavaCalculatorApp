@@ -18,13 +18,22 @@ public class Calculator {
 	private JTextField textField;
 	JLabel status = new JLabel("");
 	
+	//Holds the first entered number
 	double firstNum;
-	double secondNum;
-	double result;
-	double negative;
 	
+	//Holds the second entered number
+	double secondNum;
+	
+	//Holds the operation which should be performed between the first and the second number
 	String operations;
+	
+	//Holds the numerical result after performing operations between the first and the second numbers
+	double result;
+	
+	//Stores the result in String format 
 	String answer = new String();
+	
+	//Stores temporary data 
 	String tempText;
 	
 	boolean plus = false;
@@ -88,8 +97,12 @@ public class Calculator {
 		
 		status.setForeground(RESULT_COLOR);
 		frame.setResizable(false);
+		
+		
+		
 		/**************************************** Row 1 *******************************************/
 		JButton btnBack = new JButton("\u20D6");
+		btnBack.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -103,7 +116,7 @@ public class Calculator {
 				}
 			}
 		});
-		btnBack.setFont(new Font("Arial", Font.BOLD, 16));
+		btnBack.setFont(new Font("Arial Unicode MS", Font.BOLD, 26));
 		btnBack.setBounds(10, 92, 58, 50);
 		frame.getContentPane().add(btnBack);
 		
@@ -115,11 +128,14 @@ public class Calculator {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(null);
 				status.setText(null);
+				
 				firstNum = 0;
 				secondNum = 0;
 				result = 0;
+				
 				operations = null;
 				answer = null;
+				tempText = null;
 				
 				plus = false;
 				minus = false;
@@ -130,7 +146,9 @@ public class Calculator {
 				firstNumStatus = false;
 				secondNumStatus = false;
 				PMStatus = false;
-						
+				operationStatus = false;	
+				dot = false;
+
 			}
 		});
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -144,9 +162,14 @@ public class Calculator {
 		btnPrecent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				firstNum = Double.parseDouble(textField.getText());
-				textField.setText("");
-				operations = "%";
+				if(secondNumStatus)
+				{
+					//calculate the percentage of the first number according to the second number 
+					secondNum = (firstNum * secondNum) / 100;
+					//change the text field
+					textField.setText("");
+					textField.setText(firstNum + " " + operations + " " +secondNum);
+				}
 			}
 		});
 		btnPrecent.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -750,10 +773,7 @@ public class Calculator {
 		JButton btnEqual = new JButton("=");
 		btnEqual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				String answer;
-				
-				
+								
 				if(!textField.getText().equals(""))
 				{
 					if(operations == "+")
