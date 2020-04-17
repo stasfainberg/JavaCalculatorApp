@@ -681,7 +681,6 @@ public class Calculator {
 							dot = true;
 							String enteredNumber = textField.getText() + btnDot.getText();
 							textField.setText(enteredNumber);
-							
 						}else {
 							
 						}
@@ -690,6 +689,7 @@ public class Calculator {
 							dot = true;
 							String enteredNumber = textField.getText() + btnDot.getText();
 							textField.setText(enteredNumber);
+							tempText = tempText + btnDot.getText();
 						}else {
 							
 						}
@@ -697,10 +697,6 @@ public class Calculator {
 						
 					}
 				}
-				
-				
-				
-				
 			}
 		});
 		btnDot.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -771,6 +767,7 @@ public class Calculator {
 						equal = false;
 						plus = false;
 						operationStatus = false;
+						tempText = "";
 					}
 					else if(operations == "-")
 					{
@@ -785,6 +782,7 @@ public class Calculator {
 						equal = false;
 						minus = false;
 						operationStatus = false;
+						tempText = "";
 					}
 					else if(operations == "*")
 					{
@@ -799,6 +797,7 @@ public class Calculator {
 						equal = false;
 						mul = false;
 						operationStatus = false;
+						tempText = "";
 					}
 					else if(operations == "/")
 					{
@@ -813,6 +812,7 @@ public class Calculator {
 						equal = false;
 						div = false;
 						operationStatus = false;
+						tempText = "";
 					}
 					else if(operations == "%")
 					{
