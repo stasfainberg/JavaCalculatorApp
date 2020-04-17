@@ -36,6 +36,9 @@ public class Calculator {
 	//Stores temporary data 
 	String tempText;
 	
+	//
+	int countTextFieldCharacters = 0;
+	
 	boolean plus = false;
 	boolean minus = false;
 	boolean mul = false;
@@ -109,10 +112,25 @@ public class Calculator {
 				String backSpace = null;
 				if(textField.getText().length() > 0)
 				{
-					StringBuilder strB = new StringBuilder(textField.getText());
-					strB.deleteCharAt(textField.getText().length() -1);
-					backSpace = strB.toString();
-					textField.setText(backSpace);
+					if(firstNumStatus && operationStatus) {
+						StringBuilder strB = new StringBuilder(textField.getText());
+						strB.deleteCharAt(textField.getText().length() -1);
+						strB.deleteCharAt(textField.getText().length() -2);
+						strB.deleteCharAt(textField.getText().length() -3);
+						backSpace = strB.toString();
+						textField.setText(backSpace);
+						countTextFieldCharacters -= 3;
+						operationStatus = false;
+						firstNumStatus = false;
+					}else {
+						StringBuilder strB = new StringBuilder(textField.getText());
+						strB.deleteCharAt(textField.getText().length() -1);
+						backSpace = strB.toString();
+						textField.setText(backSpace);
+						countTextFieldCharacters--;
+					}
+				}else {
+					
 				}
 			}
 		});
@@ -148,7 +166,8 @@ public class Calculator {
 				PMStatus = false;
 				operationStatus = false;	
 				dot = false;
-
+				
+				countTextFieldCharacters = 0;
 			}
 		});
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -212,6 +231,7 @@ public class Calculator {
 					firstNumStatus = true;
 					operationStatus = true;
 					dot = false;
+					countTextFieldCharacters += 3;
 				}else {
 					
 				}
@@ -239,12 +259,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn7.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn7.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn7.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 		});
@@ -271,12 +293,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn8.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn8.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn8.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -303,12 +327,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn9.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn9.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn9.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -353,6 +379,7 @@ public class Calculator {
 					firstNumStatus = true;
 					operationStatus = true;
 					dot = false;
+					countTextFieldCharacters += 3;
 				}else {
 					
 				}
@@ -380,12 +407,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn4.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn4.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn4.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -413,12 +442,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn5.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn5.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn5.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -446,12 +477,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn6.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn6.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn6.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -498,6 +531,7 @@ public class Calculator {
 					firstNumStatus = true;
 					operationStatus = true;
 					dot = false;
+					countTextFieldCharacters += 3;
 				}else {
 					
 				}
@@ -527,12 +561,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn1.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn1.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn1.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 			
@@ -560,12 +596,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn2.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn2.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn2.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 		});
@@ -593,12 +631,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn3.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn3.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn3.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 		});
@@ -644,6 +684,7 @@ public class Calculator {
 					firstNumStatus = true;
 					operationStatus = true;
 					dot = false;
+					countTextFieldCharacters += 3;
 				}else {
 					
 				}
@@ -671,12 +712,14 @@ public class Calculator {
 					String enteredNumber = textField.getText() + btn0.getText();
 					textField.setText(enteredNumber);
 					firstNum = Double.parseDouble(textField.getText());
+					countTextFieldCharacters++;
 				}else {
 					String enteredNumber = textField.getText() + btn0.getText();
 					textField.setText(enteredNumber);
 					tempText = tempText + btn0.getText();
 					secondNum = Double.parseDouble(tempText.toString());
 					secondNumStatus = true;
+					countTextFieldCharacters++;
 				}
 			}
 		});
@@ -705,6 +748,7 @@ public class Calculator {
 								dot = true;
 								String enteredNumber = textField.getText() + btnDot.getText();
 								textField.setText(enteredNumber);
+								countTextFieldCharacters += 3;
 							}else {
 								
 							}
@@ -714,6 +758,7 @@ public class Calculator {
 								String enteredNumber = textField.getText() + btnDot.getText();
 								textField.setText(enteredNumber);
 								tempText = tempText + btnDot.getText();
+								countTextFieldCharacters += 3;
 							}else {
 								
 							}
@@ -790,6 +835,7 @@ public class Calculator {
 						plus = false;
 						operationStatus = false;
 						tempText = "";
+						countTextFieldCharacters = answer.length();
 					}
 					else if(operations == "-")
 					{
@@ -805,6 +851,7 @@ public class Calculator {
 						minus = false;
 						operationStatus = false;
 						tempText = "";
+						countTextFieldCharacters = answer.length();
 					}
 					else if(operations == "*")
 					{
@@ -820,6 +867,7 @@ public class Calculator {
 						mul = false;
 						operationStatus = false;
 						tempText = "";
+						countTextFieldCharacters = answer.length();
 					}
 					else if(operations == "/")
 					{
@@ -835,13 +883,10 @@ public class Calculator {
 						div = false;
 						operationStatus = false;
 						tempText = "";
+						countTextFieldCharacters = answer.length();
 					}
-					else if(operations == "%")
-					{
-						result = firstNum % secondNum;
-						answer = String.format("%.2f", result);
-						textField.setText(answer);
-						resultDispalied = true;
+					else {
+
 					}
 				}else {
 					
