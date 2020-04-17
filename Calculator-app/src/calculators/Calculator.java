@@ -640,22 +640,20 @@ public class Calculator {
 				if(resultDispalied)
 				{
 					textField.setText("");
+					resultDispalied = false;
+				}
+
+				if(!firstNumStatus)
+				{
 					String enteredNumber = textField.getText() + btn0.getText();
 					textField.setText(enteredNumber);
-					resultDispalied = false;
+					firstNum = Double.parseDouble(textField.getText());
 				}else {
-					if(!firstNumStatus)
-					{
-						String enteredNumber = textField.getText() + btn0.getText();
-						textField.setText(enteredNumber);
-						firstNum = Double.parseDouble(textField.getText());
-					}else {
-						String enteredNumber = textField.getText() + btn0.getText();
-						textField.setText(enteredNumber);
-						tempText = tempText + btn0.getText();
-						secondNum = Double.parseDouble(tempText.toString());
-						secondNumStatus = true;
-					}
+					String enteredNumber = textField.getText() + btn0.getText();
+					textField.setText(enteredNumber);
+					tempText = tempText + btn0.getText();
+					secondNum = Double.parseDouble(tempText.toString());
+					secondNumStatus = true;
 				}
 			}
 		});
@@ -671,30 +669,34 @@ public class Calculator {
 		btnDot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				if(resultDispalied)
-				{
+				if(textField.getText().equals("")) {
 					return;
 				}else {
-					if(!firstNumStatus)
+					if(resultDispalied)
 					{
-						if(!dot) {
-							dot = true;
-							String enteredNumber = textField.getText() + btnDot.getText();
-							textField.setText(enteredNumber);
-						}else {
-							
-						}
-					}else if(secondNumStatus && operationStatus){
-						if(!dot) {
-							dot = true;
-							String enteredNumber = textField.getText() + btnDot.getText();
-							textField.setText(enteredNumber);
-							tempText = tempText + btnDot.getText();
-						}else {
-							
-						}
+						return;
 					}else {
-						
+						if(!firstNumStatus)
+						{
+							if(!dot) {
+								dot = true;
+								String enteredNumber = textField.getText() + btnDot.getText();
+								textField.setText(enteredNumber);
+							}else {
+								
+							}
+						}else if(secondNumStatus && operationStatus){
+							if(!dot) {
+								dot = true;
+								String enteredNumber = textField.getText() + btnDot.getText();
+								textField.setText(enteredNumber);
+								tempText = tempText + btnDot.getText();
+							}else {
+								
+							}
+						}else {
+							
+						}
 					}
 				}
 			}
