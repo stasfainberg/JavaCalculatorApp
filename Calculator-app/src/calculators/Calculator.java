@@ -84,14 +84,14 @@ public class Calculator {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 286, 439);
+		frame.setBounds(100, 100, 300, 439);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.RIGHT);
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setBounds(10, 11, 262, 35);
+		textField.setBounds(13, 11, 262, 35);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		status.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -114,7 +114,36 @@ public class Calculator {
 				String backSpace = null;
 				if(textField.getText().length() > 0)
 				{
-					if(secondNumStatus) {
+					if(resultDispalied)
+					{
+						
+						textField.setText(null);
+						status.setText(null);
+						
+						firstNum = Double.parseDouble(textField.getText());
+						secondNum = Double.parseDouble(textField.getText());
+						result = Double.parseDouble(textField.getText());
+						
+						operations = null;
+						answer = null;
+						tempText = null;
+						
+						countTextFieldCharacters = 0;
+						secondNumCountTextField = 0;
+						
+						plus = false;
+						minus = false;
+						mul = false;
+						div = false;
+						equal = false;
+						resultDispalied = false;
+						firstNumStatus = false;
+						secondNumStatus = false;
+						PMStatus = false;
+						operationStatus = false;
+						dot = false;
+						
+					}else if(secondNumStatus) {
 						StringBuilder strB = new StringBuilder(textField.getText());
 						strB.deleteCharAt(textField.getText().length() -1);
 						backSpace = strB.toString();
@@ -135,9 +164,16 @@ public class Calculator {
 						strB.deleteCharAt(textField.getText().length() -3);
 						backSpace = strB.toString();
 						textField.setText(backSpace);
+						firstNum = Double.parseDouble(textField.getText());
 						operationStatus = false;
 						firstNumStatus = false;
 						
+					}else {
+						StringBuilder strB = new StringBuilder(textField.getText());
+						strB.deleteCharAt(textField.getText().length() -1);
+						backSpace = strB.toString();
+						textField.setText(backSpace);
+						firstNum = Double.parseDouble(textField.getText());
 					}
 				}else {
 					
@@ -145,7 +181,7 @@ public class Calculator {
 			}
 		});
 		btnBack.setFont(new Font("Arial Unicode MS", Font.BOLD, 26));
-		btnBack.setBounds(10, 92, 58, 50);
+		btnBack.setBounds(13, 92, 58, 50);
 		frame.getContentPane().add(btnBack);
 		
 
@@ -154,12 +190,13 @@ public class Calculator {
 		JButton btnClear = new JButton("C");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				textField.setText(null);
 				status.setText(null);
 				
-				firstNum = 0;
-				secondNum = 0;
-				result = 0;
+				firstNum = Double.parseDouble(textField.getText());
+				secondNum = Double.parseDouble(textField.getText());
+				result = Double.parseDouble(textField.getText());
 				
 				operations = null;
 				answer = null;
@@ -178,10 +215,12 @@ public class Calculator {
 				dot = false;
 				
 				countTextFieldCharacters = 0;
+				secondNumCountTextField = 0;
+
 			}
 		});
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnClear.setBounds(76, 92, 58, 50);
+		btnClear.setBounds(79, 92, 58, 50);
 		frame.getContentPane().add(btnClear);
 		
 		
@@ -202,7 +241,7 @@ public class Calculator {
 			}
 		});
 		btnPrecent.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnPrecent.setBounds(144, 92, 58, 50);
+		btnPrecent.setBounds(147, 92, 58, 50);
 		frame.getContentPane().add(btnPrecent);
 		
 		
@@ -248,7 +287,7 @@ public class Calculator {
 			}
 		});
 		btnPlus.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnPlus.setBounds(212, 92, 58, 50);
+		btnPlus.setBounds(215, 92, 58, 50);
 		frame.getContentPane().add(btnPlus);
 		
 		
@@ -280,7 +319,7 @@ public class Calculator {
 			}
 		});
 		btn7.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn7.setBounds(10, 149, 58, 50);
+		btn7.setBounds(13, 149, 58, 50);
 		frame.getContentPane().add(btn7);
 		
 		
@@ -314,7 +353,7 @@ public class Calculator {
 			
 		});
 		btn8.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn8.setBounds(76, 149, 58, 50);
+		btn8.setBounds(79, 149, 58, 50);
 		frame.getContentPane().add(btn8);
 		
 		
@@ -347,7 +386,7 @@ public class Calculator {
 			
 		});
 		btn9.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn9.setBounds(144, 149, 58, 50);
+		btn9.setBounds(147, 149, 58, 50);
 		frame.getContentPane().add(btn9);
 		
 		
@@ -393,7 +432,7 @@ public class Calculator {
 			}
 		});
 		btnMinus.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnMinus.setBounds(212, 149, 58, 50);
+		btnMinus.setBounds(215, 149, 58, 50);
 		frame.getContentPane().add(btnMinus);
 		
 		
@@ -426,7 +465,7 @@ public class Calculator {
 			
 		});
 		btn4.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn4.setBounds(10, 206, 58, 50);
+		btn4.setBounds(13, 206, 58, 50);
 		frame.getContentPane().add(btn4);
 		
 		
@@ -460,7 +499,7 @@ public class Calculator {
 			
 		});
 		btn5.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn5.setBounds(76, 206, 58, 50);
+		btn5.setBounds(79, 206, 58, 50);
 		frame.getContentPane().add(btn5);
 		
 		
@@ -494,7 +533,7 @@ public class Calculator {
 			
 		});
 		btn6.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn6.setBounds(144, 206, 58, 50);
+		btn6.setBounds(147, 206, 58, 50);
 		frame.getContentPane().add(btn6);
 		
 		
@@ -542,7 +581,7 @@ public class Calculator {
 			}
 		});
 		btnMul.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnMul.setBounds(212, 206, 58, 50);
+		btnMul.setBounds(215, 206, 58, 50);
 		frame.getContentPane().add(btnMul);
 		
 		
@@ -577,7 +616,7 @@ public class Calculator {
 			
 		});
 		btn1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn1.setBounds(10, 263, 58, 50);
+		btn1.setBounds(13, 263, 58, 50);
 		frame.getContentPane().add(btn1);
 		
 		
@@ -610,7 +649,7 @@ public class Calculator {
 			}
 		});
 		btn2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn2.setBounds(76, 263, 58, 50);
+		btn2.setBounds(79, 263, 58, 50);
 		frame.getContentPane().add(btn2);
 		
 		
@@ -644,7 +683,7 @@ public class Calculator {
 			}
 		});
 		btn3.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn3.setBounds(144, 263, 58, 50);
+		btn3.setBounds(147, 263, 58, 50);
 		frame.getContentPane().add(btn3);
 		
 		
@@ -692,7 +731,7 @@ public class Calculator {
 			}
 		});
 		btnDiv.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnDiv.setBounds(212, 263, 58, 50);
+		btnDiv.setBounds(215, 263, 58, 50);
 		frame.getContentPane().add(btnDiv);
 		
 		
@@ -724,7 +763,7 @@ public class Calculator {
 			}
 		});
 		btn0.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btn0.setBounds(10, 320, 58, 50);
+		btn0.setBounds(13, 320, 58, 50);
 		frame.getContentPane().add(btn0);
 		
 		
@@ -808,7 +847,7 @@ public class Calculator {
 			}
 		});
 		btnPM.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnPM.setBounds(144, 320, 58, 50);
+		btnPM.setBounds(147, 320, 58, 50);
 		frame.getContentPane().add(btnPM);
 		
 		
@@ -898,7 +937,7 @@ public class Calculator {
 			}
 		});
 		btnEqual.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnEqual.setBounds(212, 320, 58, 50);
+		btnEqual.setBounds(215, 320, 58, 50);
 		frame.getContentPane().add(btnEqual);
 		
 
