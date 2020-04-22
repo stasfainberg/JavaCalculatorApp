@@ -19,16 +19,16 @@ public class Calculator {
 	JLabel status = new JLabel("");
 	
 	//Holds the first entered number
-	double firstNum;
+	Double firstNum;
 	
 	//Holds the second entered number
-	double secondNum;
+	Double secondNum;
 	
 	//Holds the operation which should be performed between the first and the second number
 	String operations;
 	
 	//Holds the numerical result after performing operations between the first and the second numbers
-	double result;
+	Double result;
 	
 	//Stores the result in String format 
 	String answer = new String();
@@ -120,9 +120,9 @@ public class Calculator {
 						textField.setText(null);
 						status.setText(null);
 						
-						firstNum = Double.parseDouble(textField.getText());
-						secondNum = Double.parseDouble(textField.getText());
-						result = Double.parseDouble(textField.getText());
+						firstNum = null;
+						secondNum = null;
+						result = null;
 						
 						operations = null;
 						answer = null;
@@ -154,7 +154,7 @@ public class Calculator {
 						
 						if(secondNumCountTextField == 0) {
 							secondNumStatus = false;
-							secondNum = 0;
+							secondNum = null;
 						}
 						
 					}else if(firstNumStatus && operationStatus) {
@@ -194,9 +194,9 @@ public class Calculator {
 				textField.setText(null);
 				status.setText(null);
 				
-				firstNum = Double.parseDouble(textField.getText());
-				secondNum = Double.parseDouble(textField.getText());
-				result = Double.parseDouble(textField.getText());
+				firstNum = null;
+				secondNum = null;
+				result = null;
 				
 				operations = null;
 				answer = null;
@@ -808,7 +808,7 @@ public class Calculator {
 			}
 		});
 		btnDot.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnDot.setBounds(76, 320, 58, 50);
+		btnDot.setBounds(79, 320, 58, 50);
 		frame.getContentPane().add(btnDot);
 		
 		
