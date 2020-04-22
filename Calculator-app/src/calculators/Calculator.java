@@ -40,7 +40,6 @@ public class Calculator {
 	int countTextFieldCharacters = 0;
 	int secondNumCountTextField = 0;
 	
-	
 	boolean plus = false;
 	boolean minus = false;
 	boolean mul = false;
